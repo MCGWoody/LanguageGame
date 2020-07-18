@@ -9,12 +9,12 @@ const MoveFinger = (entities, { touches }) => {
     let finger = entities[t.id];
     if (finger && finger.position) {
       finger.position = [
-        finger.position[0] + t.delta.pageX,
-        finger.position[1] + t.delta.pageY
+        t.newPageX,
+        t.newPageY
       ];
     }
   });
-
+  
   return entities;
 };
 
