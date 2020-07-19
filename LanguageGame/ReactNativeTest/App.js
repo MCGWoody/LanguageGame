@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { AppRegistry, StyleSheet, StatusBar } from "react-native";
 import { GameEngine } from "react-native-game-engine";
-import { Finger, TopTextPrompt, WordBlock } from "./renderers";
+import { Finger, TopTextPrompt, WordBlock, Grid } from "./renderers";
 import { MoveWordBlocks } from "./systems"
 
 export default class BestGameEver extends PureComponent {
@@ -15,9 +15,10 @@ export default class BestGameEver extends PureComponent {
         style={styles.container}
         systems={[MoveWordBlocks]}
         entities={{
-          2: { text: "Je", position: [100, 300] , renderer: <WordBlock />},
-          3: { text: "suis", position: [100, 400] , renderer: <WordBlock />},
-          4: { text: "faim", position: [200, 400] , renderer: <WordBlock />},
+          1: { position: [0, 150] , renderer: <Grid />},
+          2: { text: "Je", position: [0, 250] , renderer: <WordBlock />},
+          3: { text: "suis", position: [0, 350] , renderer: <WordBlock />},
+          4: { text: "faim", position: [100, 350] , renderer: <WordBlock />},
           5: { position: [0, 0], renderer: <TopTextPrompt />}
         }}>
 

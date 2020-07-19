@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-const RADIUS = 20;
+const RADIUS = 15;
 
 class Finger extends PureComponent {
   render() {
@@ -38,8 +38,19 @@ class WordBlock extends PureComponent {
   }
 }
 
+class Grid extends PureComponent {
+
+  render() {
+    const x = this.props.position[0] + 15;
+    const y = this.props.position[1] + 15;
+    return (
+      <View style={[styles.gridPoint, { left: x, top: y }]} />
+    );
+  }
+}
+
 const styles = StyleSheet.create({
-  finger: {
+  gridPoint: {
     borderColor: "#CCC",
     borderWidth: 4,
     borderRadius: RADIUS * 2,
@@ -74,4 +85,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export { Finger, TopTextPrompt, WordBlock };
+export { Finger, TopTextPrompt, WordBlock, Grid };
