@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
 import { AppRegistry, StyleSheet, StatusBar } from "react-native";
 import { GameEngine } from "react-native-game-engine";
-import { Finger } from "./renderers";
-import { MoveFinger } from "./systems"
+import { Finger, TopTextPrompt, WordBlock } from "./renderers";
+import { MoveWordBlocks } from "./systems"
 
 export default class BestGameEver extends PureComponent {
   constructor() {
@@ -13,13 +13,12 @@ export default class BestGameEver extends PureComponent {
     return (
       <GameEngine
         style={styles.container}
-        systems={[MoveFinger]}
+        systems={[MoveWordBlocks]}
         entities={{
-          0: { position: [40,  200], renderer: <Finger />}, //-- Notice that each entity has a unique id (required)
-          1: { position: [100, 200], renderer: <Finger />}, //-- and a renderer property (optional). If no renderer
-          2: { position: [160, 200], renderer: <Finger />}, //-- is supplied with the entity - it won't get displayed.
-          3: { position: [220, 200], renderer: <Finger />},
-          4: { position: [280, 200], renderer: <Finger />}
+          2: { text: "Je", position: [100, 300] , renderer: <WordBlock />},
+          3: { text: "suis", position: [100, 400] , renderer: <WordBlock />},
+          4: { text: "faim", position: [200, 400] , renderer: <WordBlock />},
+          5: { position: [0, 0], renderer: <TopTextPrompt />}
         }}>
 
         <StatusBar hidden={true} />
