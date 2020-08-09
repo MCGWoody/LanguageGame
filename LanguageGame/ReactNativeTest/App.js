@@ -15,7 +15,7 @@ export default class BestGameEver extends PureComponent {
         style={styles.container}
         systems={[MoveWordBlocks]}
         entities={{
-          1: { position: [0, 150] , renderer: <Grid />},
+          1: { position: [0, 150] , renderer: <Finger />},
           2: { text: "Je", position: [0, 250] , renderer: <WordBlock />},
           3: { text: "suis", position: [0, 350] , renderer: <WordBlock />},
           4: { text: "faim", position: [100, 350] , renderer: <WordBlock />},

@@ -59,6 +59,15 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     position: "absolute"
   },
+  finger: {
+    borderColor: "#CCC",
+    borderWidth: 4,
+    borderRadius: RADIUS * 2,
+    width: RADIUS * 2,
+    height: RADIUS * 2,
+    backgroundColor: "black",
+    position: "absolute"
+  },
   viewBG: {
     borderColor: "#CCC",
     borderWidth: 4,
