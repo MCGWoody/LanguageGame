@@ -19,7 +19,7 @@ export default class BestGameEver extends PureComponent {
           2: { text: "Je", position: [0, 250] , renderer: <WordBlock />},
           3: { text: "suis", position: [0, 350] , renderer: <WordBlock />},
           4: { text: "faim", position: [100, 350] , renderer: <WordBlock />},
-          5: { position: [0, 0], renderer: <TopTextPrompt />}
+          5: { text: "2.0. J'ai aller parce que quoi?", position: [0, 0], renderer: <TopTextPrompt />}
         }}>
 
         <StatusBar hidden={true} />

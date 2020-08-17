@@ -3,14 +3,31 @@ selectedEnt = null;
 
 const MoveWordBlocks = (entities, { touches }) => 
 {
-  touches.filter(t => t.type === "move").forEach(t => {
-        let finger = entities[t.id];
-        if (finger && finger.position) {
+  touches.filter(t => t.type === "start").forEach(t => {
+        let finger = entities[t.id + 1];
+        let finger2 = entities[t.id + 2];
+        let finger5 = entities[5];
+        finger5.text = Math.trunc(t.event.pageX) + ", " + Math.trunc(t.event.pageY);
+        if (t.id == 0 && finger && finger.position) {
           finger.position = [
-            t.newPageX,
-            t.newPageY]
+            t.event.pageX,
+            t.event.pageY];
+        }
+        for (let index = 2; index < 5; index++) {
+          let element = entities[index];
+          let diffX = entities[index].position[0] - t.event.pageX;
+          let diffY = entities[index].position[1] - t.event.pageY;
+          finger5.text += " / " + Math.trunc(entities[index].position[0]) + ", " + Math.trunc(entities[index].position[1]);
+          if( diffX < 50 && diffX > 0 && diffY < 50 && diffY > 0 ) {
+            entities[index].selected = true;
+            element.text = "special";
           }
-        });
+          else{
+            //entities[index].selected = false;
+          }
+        } 
+      }        
+      );
 
   /*touches.filter(t => t.type === "move").forEach(t => {
     console.log('start touch');

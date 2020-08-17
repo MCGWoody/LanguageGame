@@ -19,19 +19,24 @@ class TopTextPrompt extends PureComponent {
     const y = this.props.position[1];
     return (
       <View style={[styles.viewBG, { left: x, top: y }]}>
-        <Text style={styles.textPrompt} >  J'ai aller parce que quoi? </Text>
+        <Text style={styles.textPrompt} >  {this.props.text} </Text>
       </View>
     );
   }
 }
 
 class WordBlock extends PureComponent {
-
+  selected = false;
   render() {
     const x = this.props.position[0];
     const y = this.props.position[1];
+    var wordBlockBGStyle = styles.wordBlockBG; 
+    if( this.selected )
+    {
+      wordBlockBGStyle = styles.wordBlockSelected;
+    }
     return (
-      <View style={[styles.wordBlockBG, { left: x, top: y }]}>
+      <View style={[wordBlockBGStyle, { left: x, top: y }]}>
         <Text style={styles.wordBlockText} >  {this.props.text} </Text>
       </View>
     );
@@ -82,6 +87,14 @@ const styles = StyleSheet.create({
   },
   wordBlockBG: {
     borderColor: "#CCC",
+    borderWidth: 4,
+    width: 100,
+    height: 100,
+    backgroundColor: "#DDD",
+    position: "absolute"
+  },
+  wordBlockSelected: {
+    borderColor: "#222",
     borderWidth: 4,
     width: 100,
     height: 100,
